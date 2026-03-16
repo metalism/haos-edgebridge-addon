@@ -1,0 +1,20 @@
+#include <tunables/global>
+
+profile edgebridge flags=(attach_disconnected,mediate_deleted) {
+  #include <abstractions/base>
+
+  network,
+  capability,
+  file,
+  umount,
+
+  /usr/** r,
+  /bin/** r,
+  /sbin/** r,
+  /app/** rw,
+  /data/** rw,
+
+  deny /dev/mem rwklx,
+  deny /dev/kmem rwklx,
+  deny /dev/port rwklx,
+}
