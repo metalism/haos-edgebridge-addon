@@ -5,16 +5,28 @@
   "description": "SmartThings EdgeBridge server",
   "startup": "services",
   "boot": "auto",
-  "host_network": true,
   "init": false,
-  "arch": ["amd64", "aarch64", "armv7"],
+  "host_network": true,
+  "ingress": false,
+  "panel_icon": "mdi:bridge",
+  "arch": [
+    "amd64",
+    "i386",
+    "aarch64",
+    "armv7"
+  ],
   "ports": {
     "8088/tcp": 8088
   },
+  "ports_description": {
+    "8088/tcp": "EdgeBridge HTTP port"
+  },
   "options": {
-    "debug": false
+    "debug": false,
+    "port": 8088
   },
   "schema": {
-    "debug": "bool"
+    "debug": "bool",
+    "port": "int"
   }
 }
